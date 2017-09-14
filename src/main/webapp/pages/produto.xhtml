@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+     template="/templates/template_model.xhtml">
+        
+   
+     
+        <ui:define name="conteudo">        
+            <h:form acceptcharset="UTF-8">
+
+
+                <p:growl id="messages" showDetail="false" autoUpdate="true" sticky="true"/>
+                <p:toolbar style="margin:0px">
+                    <f:facet name="left">
+                        <h:outputText value="Produtos" />        
+                    </f:facet> 
+                </p:toolbar>
+
+
+                       <h:panelGrid columns="2" cellpadding="2" >
+                            <p:outputLabel value="Posto/Grad:" for="posto" />
+                            <p:selectOneMenu id="posto" value="#{usuarioBean.posto}" style="width:300px" >
+                                <f:selectItem itemLabel="Selecione posto ou graduação" itemValue="" />
+                                <f:selectItems value="#{usuarioBean.postos}" />
+                            </p:selectOneMenu>
+
+                            <p:outputLabel value="Arma/Quadro/Serviço:" for="arma" />
+                            <p:selectOneMenu id="arma" value="#{usuarioBean.arma}" style="width:300px">
+                                <f:selectItem itemLabel="Selecione arma" itemValue="" />
+                                <f:selectItems value="#{usuarioBean.armas}" />
+                            </p:selectOneMenu>
+
+                            <h:outputLabel value="Nome:" for="nome" />
+                            <p:inputText id="nome" label="Nome" size="40" value="#{usuarioBean.nome}" placeholder="Informe seu nome."/>
+
+
+                            <p:outputLabel for="su" value="SU:" />
+                            <p:selectOneMenu id="su" value="#{usuarioBean.su}" style="width:200px">
+                                <f:selectItem itemLabel="Escolha sua subunidade" itemValue="" />
+                                <f:selectItem itemLabel="1ª Cia Fuz" itemValue="1ª Cia Fuz" />
+                                <f:selectItem itemLabel="2ª Cia Fuz" itemValue="2ª Cia Fuz" />
+                                <f:selectItem itemLabel="3ª Cia Fuz" itemValue="3ª Cia Fuz" />
+                                <f:selectItem itemLabel="Cia C Ap" itemValue="Cia C Ap" />
+                                <f:selectItem itemLabel="Banda de Música" itemValue="Banda de Música" />
+                                <f:selectItem itemLabel="NPOR" itemValue="NPOR" />
+                            </p:selectOneMenu>
+
+                        
+                            <p:outputLabel for="banco" value="Instituição financeira:" />
+                            <p:selectOneMenu id="banco" value="#{usuarioBean.banco}" style="width:300px">
+                                <f:selectItem itemLabel="Escolha sua instituição financeira" itemValue="" />
+                                <f:selectItem itemLabel="Banco do Brasil" itemValue="bb" />
+                                <f:selectItem itemLabel="Banco Santander" itemValue="santander" />
+                                <f:selectItem itemLabel="Bradesco" itemValue="bradesco" />
+                                <f:selectItem itemLabel="Caixa Econômica Federal" itemValue="cef" />
+                            </p:selectOneMenu>
+
+                         
+                           
+                            <p:outputLabel for="bairro" value="Bairro:" />
+                            <p:selectOneMenu id="bairro" value="#{usuarioBean.bairro}" style="width:200px">
+                                <f:selectItem itemLabel="Escolha seu bairro." itemValue="" />
+                                <f:selectItem itemLabel="Tirol" itemValue="Tirol" />
+                                <f:selectItem itemLabel="Petrópolis" itemValue="Petrópolis" />
+                                <f:selectItem itemLabel="Morro Branco" itemValue="Morro Branco" />
+                                <f:selectItem itemLabel="Capim Macio" itemValue="Capim Macio" />
+                            </p:selectOneMenu>
+                            
+                            
+                            <p:outputLabel for="escolaridade" value="Escolaridade:" />
+                            <p:selectOneMenu id="escolaridade" value="#{usuarioBean.escolaridade}" style="width:125px">
+                                <f:selectItem itemLabel="Nível de formação" itemValue="" />
+                                <f:selectItem itemLabel="Superior completo" itemValue="Superior_completo" />
+                                <f:selectItem itemLabel="Superior incompleto" itemValue="Superior_incompleto" />
+                                <f:selectItem itemLabel="Ensino médio" itemValue="médio" />
+                            </p:selectOneMenu>
+
+                            <p:outputLabel for="phone" value="Phone:" />
+                            <p:inputMask id="phone" value="#{usuarioBean.phone}" mask="(99) 9-9999-9999"/>
+
+                            <p:outputLabel for="cep" value="CEP:" />
+                            <p:inputMask id="cep" value="#{usuarioBean.cep}" mask="99999-999"/>
+                            
+                               
+                            <h:outputLabel value="CPF:" for="cpf" />
+                            <p:inputMask id="CPF" value="#{usuarioBean.cpf}" mask="999.999.999-99"/>
+                            
+                            
+                          
+                            <p:outputLabel for="praca" value="Data de praça:" />
+                            <p:calendar id="praca" value="#{usuarioBean.praca}" showOn="button" />
+              
+                        </h:panelGrid>
+                  
+            </h:form>
+        </ui:define>     
+    </ui:composition>
